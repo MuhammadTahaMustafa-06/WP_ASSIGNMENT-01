@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games & Quizzes - Interactive Quiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="navbar navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-gamepad me-2"></i> Games & Quizzes
+            </a>
+        </div>
+    </header>
+
+    <main id="app">
+        <!-- Start Screen -->
+        <div id="start-screen" class="quiz-container">
+            <div class="quiz-content">
+                <h2>Can You Remember These Mnemonics? Quiz</h2>
+                <div class="start-btn-container">
+                    <button id="start-btn" class="btn btn-primary">Start</button>
+                </div>
+                <div class="quiz-info">
+                    <span>10 Questions</span>
+                    <span class="dot-separator">•</span>
+                    <span>Timed Mode <i class="fas fa-clock"></i></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question Screen -->
+        <div id="question-screen" class="quiz-container d-none">
+            <div class="quiz-header">
+                <div class="progress-container">
+                    <span id="current-question">1</span> of <span id="total-questions">10</span>
+                    <div class="score-display">Score: <span id="current-score">0</span></div>
+                </div>
+            </div>
+            <div class="quiz-content">
+                <h2 id="question-title">Never Eat Shredded Wheat</h2>
+                <div class="options-container" id="options-container">
+                    <!-- JavaScript insertion here -->
+                </div>
+                <button id="next-btn" class="btn btn-primary next-btn">Next <i class="fas fa-arrow-right"></i></button>
+                <div class="hint-container">
+                    <i class="fas fa-lightbulb"></i>
+                    <span id="hint-text">Starting at the top and going clockwise, compass directions are north, east, south, and west.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="quiz-container d-none">
+            <div class="tabs-container">
+                <div class="tab-header">
+                    <div class="tab active" data-tab="score">Score</div>
+                    <div class="tab" data-tab="answers">Answers</div>
+                    <div class="tab" data-tab="leaderboard">Leaderboard</div>
+                </div>
+                <div class="tab-content">
+                    <!-- Score Tab -->
+                    <div class="tab-pane active" id="score-tab">
+                        <h2>Can You Remember These Mnemonics?</h2>
+                        <div class="score-circle">
+                            <div class="score-text">
+                                <div class="final-score">0/10</div>
+                                <div class="score-label">Total points</div>
+                            </div>
+                        </div>
+                        <div class="congrats-text">Congrats!</div>
+                        <button id="play-again-btn" class="btn btn-outline-primary play-again-btn">
+                            <i class="fas fa-redo"></i> Play Again
+                        </button>
+                    </div>
+                    
+                    <!-- Answers Tab -->
+                    <div class="tab-pane" id="answers-tab">
+                        <div class="answers-list">
+                            <!-- JavaScript insertion here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Leaderboard Tab -->
+                    <div class="tab-pane" id="leaderboard-tab">
+                        <div class="leaderboard-container">
+                            <div class="leaderboard-left">
+                                <h3>Top Scores for this Quiz</h3>
+                                <div class="top-scores">
+                                    <div class="score-item">
+                                        <span class="rank">1.</span>
+                                        <span class="name">Jonathan Porter</span>
+                                        <span class="score">8,500</span>
+                                    </div>
+                                    <div class="score-item">
+                                        <span class="rank">2.</span>
+                                        <span class="name">Julie Ross</span>
+                                        <span class="score">8,000</span>
+                                    </div>
+                                    <div class="score-item">
+                                        <span class="rank">3.</span>
+                                        <span class="name">Alice Walker</span>
+                                        <span class="score">5,500</span>
+                                    </div>
+                                    <div class="score-item">
+                                        <span class="rank">4.</span>
+                                        <span class="name">Scott Jensoff</span>
+                                        <span class="score">4,200</span>
+                                    </div>
+                                    <div class="score-item">
+                                        <span class="rank">5.</span>
+                                        <span class="name">Elias Grossenbacher</span>
+                                        <span class="score">3,800</span>
+                                    </div>
+                                </div>
+                                <div class="enter-name-container">
+                                    <div class="enter-name-text">Enter the leaderboard</div>
+                                    <div class="name-input-container">
+                                        <input type="text" id="player-name" placeholder="Name">
+                                        <div class="score-display">1500</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="leaderboard-right">
+                                <h3>This Quiz</h3>
+                                <div class="your-score">
+                                    <div class="score-label">
+                                        <i class="fas fa-trophy"></i> Current
+                                    </div>
+                                    <div class="user-score">
+                                        <div class="score-value">1500</div>
+                                        <div class="score-label">POINTS</div>
+                                    </div>
+                                </div>
+                                <div class="your-score">
+                                    <div class="score-label">
+                                        <i class="fas fa-clock"></i> Time Bonus
+                                    </div>
+                                    <div class="user-score">
+                                        <div class="score-value">500</div>
+                                        <div class="score-label">POINTS</div>
+                                    </div>
+                                </div>
+                                <button id="play-again-btn2" class="btn btn-outline-primary play-again-btn">
+                                    <i class="fas fa-redo"></i> Play Again
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="newsletter-section">
+            <h3>History at your fingertips - Sign up here to see what happened On This Day, every day in your inbox!</h3>
+            <div class="newsletter-form">
+                <input type="email" placeholder="Enter your email">
+                <button class="btn btn-primary">Subscribe</button>
+            </div>
+            <p class="terms-text">
+                By signing up for this email, you are agreeing to news, offers, and information from Encyclopaedia Britannica.
+                Click here to view our <a href="#">Privacy Notice</a>. Easy unsubscribe links are provided in every email.
+            </p>
+        </div>
+        <div class="footer-links">
+            <div class="social-links">
+                STAY CONNECTED
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+            </div>
+            <div class="site-links">
+                <a href="#">About Us & Legal Info</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Diversity</a>
+            </div>
+            <div class="copyright">
+                ©2023 Encyclopaedia Britannica, Inc.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
